@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #75b1c2
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Diabetes Disease Test</h2>
+
+    <div class="container">
+        <form method="get" action="{% url 'diabetes_result' %}">
+            <label for="pregnancies">Pregnancies (0 to 20):</label>
+            <input type="number" id="pregnancies" name="pregnancies" min="0" max="20" required>
+
+            <label for="glucose">Glucose (50 to 250):</label>
+            <input type="number" id="glucose" name="glucose" min="50" max="250" required>
+
+            <label for="bloodPressure">Blood Pressure (40 to 150):</label>
+            <input type="number" id="bloodPressure" name="bloodPressure" min="40" max="150" required>
+
+            <label for="skinThickness">Skin Thickness (10 to 99):</label>
+            <input type="number" id="skinThickness" name="skinThickness" min="10" max="99" required>
+
+            <label for="insulin">Insulin (0 to 500):</label>
+            <input type="number" id="insulin" name="insulin" min="0" max="500" required>
+
+            <label for="bmi">BMI (10 to 50):</label>
+            <input type="number" id="bmi" name="bmi" min="10" max="50" step="0.1" required>
+
+            <label for="diabetesPedigreeFunction">Diabetes Pedigree Function (0.000 to 2.500):</label>
+            <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" min="0.000" max="2.500" step="0.1" required>
+
+            <label for="age">Age (20 to 80):</label>
+            <input type="number" id="age" name="age" min="20" max="80" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

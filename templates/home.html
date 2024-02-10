@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIFELINE MULTI-DISEASE HEALTH CHECKUP</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #75b1c2;
+      }
+
+      header {
+        background-color: #75b1c2;
+        color: rgb(22, 13, 13);
+        text-align: center;
+        padding: 20px;
+      }
+
+      nav {
+        background-color: #568ba5;
+        overflow: hidden;
+      }
+
+      nav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2 {
+        color: #0d0d0d;
+      }
+
+      p {
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .prediction-options {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .option input {
+        margin-right: 10px;
+      }
+
+      .contact-form {
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #333;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      button {
+        background-color: #134054;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      /* Hover Effect */
+      button:hover {
+        background-color: #263c7e;
+      }
+
+
+      button:disabled {
+        background-color: #a0a0a0;
+        cursor: not-allowed;
+      }
+
+
+
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>LIFELINE: A MULTI-DISEASE HEALTH CHECKUP WEBAPP</h1>
+    </header>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact Doctors</a>
+      <a href="#">About Us</a>
+    </nav>
+
+    <div class="container">
+      <h2>Welcome to our Health Checkup Center</h2>
+
+      <p>Your one-stop solution for disease prediction and health assessment. Use our advanced prediction models to assess the risk of various health conditions. Take proactive steps towards a healthier future!</p>
+
+      <div class="prediction-options">
+        <a href="{% url 'liver' %}"><button>Liver Disease Test</button></a><br /><br />
+        <a href="{% url 'diabetes' %}"><button>Diabetes Disease Test</button></a><br /><br />
+        <a href="{% url 'heart' %}"><button>Heart Disease Test</button></a><br /><br />
+        <a href="{% url 'parkinson' %}"><button>Parkinson's Disease Test</button></a><br /><br />
+        <a href="{% url 'breast' %}"><button>Breast Disease Test</button></a><br /><br />
+
+      </div>
+    </div>
+
+
+  </body>
+</html>

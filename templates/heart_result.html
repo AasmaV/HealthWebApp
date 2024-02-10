@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #75b1c2
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        p {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .precautions,
+        .treatments {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .diagnosed {
+            color: green;
+        }
+
+        .not-diagnosed {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction Result</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Age</th>
+                <th>Chest Pain Type</th>
+                <th>Resting Blood Pressure</th>
+                <th>Cholesterol</th>
+                <th>Fasting Blood Sugar</th>
+                <th>Max Heart Rate</th>
+                <th>Oldpeak</th>
+                <th>ST Slope</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- Add dynamic values from your data here -->
+                <td>{{ lis.0 }}</td>
+                <td>{{ lis.1 }}</td>
+                <td>{{ lis.2 }}</td>
+                <td>{{ lis.3 }}</td>
+                <td>{{ lis.4 }}</td>
+                <td>{{ lis.5 }}</td>
+                <td>{{ lis.6 }}</td>
+                <td>{{ lis.7 }}</td>
+                <td class="{% if ans == 0 %}not-diagnosed{% else %}diagnosed{% endif %}">
+                    {% if ans == 0 %}Not Diagnosed{% else %}Diagnosed{% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if ans == 0 %}
+        <p class="not-diagnosed">The patient is not diagnosed with heart disease.</p>
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Maintain a heart-healthy diet low in saturated and trans fats.</li>
+                <li>Engage in regular physical activity.</li>
+                <li>Manage stress through relaxation techniques.</li>
+                <li>Avoid smoking and limit alcohol consumption.</li>
+                <li>Monitor blood pressure and cholesterol levels regularly.</li>
+                <!-- Add more precautions as needed -->
+            </ul>
+        </div>
+    <div class="consultation">
+        <h2>Consultation:</h2>
+        <ul>
+            <li>Manifest as pressure, tightness, or pain in the chest, which may last for a few minutes or come and go.</li>
+            <li>Difficulty breathing and sudden shortness of breath without any apparent reason.</li>
+            <li>Unexplained fatigue or weakness, especially if it’s serious or accompanies other symptoms.</li>
+            <li>Palpitations, a fluttering sensation in the chest, or a rapid or irregular heartbeat.</li>
+            <li>Feeling lightheaded, dizzy, or fainting may include may indicate issues with blood flow or heart function.</li>
+            <li>Swelling in the legs, ankles, or abdomen.</li>
+        </ul>
+    </div>
+    {% else %}
+        <p class="diagnosed">The patient is diagnosed with heart disease.</p>
+        <div class="treatments">
+            <h2>Treatments:</h2>
+            <ul>
+                <li>Consult with a cardiologist for further evaluation and treatment plan.</li>
+                <li>Follow prescribed medications and lifestyle changes.</li>
+                <li>Adopt a heart-healthy lifestyle with emphasis on diet and exercise.</li>
+                <!-- Add more treatments as needed -->
+            </ul>
+        </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Click here to go to home</a>
+</body>
+</html>

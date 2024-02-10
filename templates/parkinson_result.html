@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Disease Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        p {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .precautions,
+        .treatments {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Parkinson's Disease Result</h1>
+    <h3>The data you entered is: {{ lis }}</h3>
+
+    {% if ans == 0 %}
+        <p>The patient is not diagnosed with Parkinson's disease.</p>
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Engage in regular physical exercise and activities.</li>
+                <li>Consult with a healthcare professional for further evaluation.</li>
+                <!-- Add more precautions as needed -->
+            </ul>
+        </div>
+    {% else %}
+        <p>The patient is diagnosed with Parkinson's disease.</p>
+        <div class="treatments">
+            <h2>Treatments:</h2>
+            <ul>
+                <li>Consult with a neurologist for specialized care and treatment.</li>
+                <li>Follow prescribed medications and therapy sessions.</li>
+                <!-- Add more treatments as needed -->
+            </ul>
+        </div>
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>MDVP: Fo (Hz)</th>
+                <th>MDVP: Fhi (Hz)</th>
+                <th>MDVP: Flo (Hz)</th>
+                <th>MDVP: Jitter (%)</th>
+                <th>MDVP: Jitter (Abs)</th>
+                <th>MDVP: RAP</th>
+                <th>MDVP: PPQ</th>
+                <th>Jitter: DDP</th>
+                <th>MDVP: Shimmer</th>
+                <th>MDVP: Shimmer (dB)</th>
+                <th>Shimmer: APQ3</th>
+                <th>Shimmer: APQ5</th>
+                <th>MDVP: APQ</th>
+                <th>Shimmer: DDA</th>
+                <th>NHR</th>
+                <th>HNR</th>
+                <th>RPDE</th>
+                <th>DFA</th>
+                <th>Spread1</th>
+                <th>Spread2</th>
+                <th>D2</th>
+                <th>PPE</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- Add dynamic values from your data here -->
+                <td>{{ lis.0 }}</td>
+                <td>{{ lis.1 }}</td>
+                <td>{{ lis.2 }}</td>
+                <td>{{ lis.3 }}</td>
+                <td>{{ lis.4 }}</td>
+                <td>{{ lis.5 }}</td>
+                <td>{{ lis.6 }}</td>
+                <td>{{ lis.7 }}</td>
+                <td>{{ lis.8 }}</td>
+                <td>{{ lis.9 }}</td>
+                <td>{{ lis.10 }}</td>
+                <td>{{ lis.11 }}</td>
+                <td>{{ lis.12 }}</td>
+                <td>{{ lis.13 }}</td>
+                <td>{{ lis.14 }}</td>
+                <td>{{ lis.15 }}</td>
+                <td>{{ lis.16 }}</td>
+                <td>{{ lis.17 }}</td>
+                <td>{{ lis.18 }}</td>
+                <td>{{ lis.19 }}</td>
+                <td>{{ lis.20 }}</td>
+                <td>{{ lis.21 }}</td>
+                <td>{{ lis.22 }}</td>
+                <td>
+                    {% if ans == 0 %}
+                        Not Diagnosed
+                    {% else %}
+                        Diagnosed
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{% url 'home' %}">Click here to go to home</a>
+</body>
+</html>

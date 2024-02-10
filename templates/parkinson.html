@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Disease Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #75b1c2
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Parkinson's Disease Test</h2>
+
+    <div class="container">
+        <form method="get" action="{% url 'parkinson_result' %}">
+            <label for="mdvpFo">MDVP:Fo(Hz) (50.000000 to 500.000000):</label>
+            <input type="number" id="mdvpFo" name="mdvpFo" min="50.00000" max="500.00000" step="0.00001" required>
+
+            <label for="mdvpFhi">MDVP:Fhi(Hz) (80.000000 to 1000.000000):</label>
+            <input type="number" id="mdvpFhi" name="mdvpFhi" min="80.00000" max="1000.00000" step="0.00001" required>
+
+            <label for="mdvpFlo">MDVP:Flo(Hz) (30.000000 to 400.000000):</label>
+            <input type="number" id="mdvpFlo" name="mdvpFlo" min="30.00000" max="400.00000" step="0.00001" required>
+
+            <label for="mdvpJitter">MDVP:Jitter(%) (0.00000 to 1.00000):</label>
+            <input type="number" id="mdvpJitter" name="mdvpJitter" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="mdvpJitterAbs">MDVP:Jitter(Abs) (0.00000 to 0.10000):</label>
+            <input type="number" id="mdvpJitterAbs" name="mdvpJitterAbs" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="mdvpRAP">MDVP:RAP (0.00000 to 0.10000):</label>
+            <input type="number" id="mdvpRAP" name="mdvpRAP" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="mdvpPPQ">MDVP:PPQ (0.00000 to 0.10000):</label>
+            <input type="number" id="mdvpPPQ" name="mdvpPPQ" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="jitterDDP">Jitter:DDP (0.00000 to 0.10000):</label>
+            <input type="number" id="jitterDDP" name="jitterDDP" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="mdvpShimmer">MDVP:Shimmer (0.00000 to 0.10000):</label>
+            <input type="number" id="mdvpShimmer" name="mdvpShimmer" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="mdvpShimmerdB">MDVP:Shimmer(dB) (0.00000 to 1.00000):</label>
+            <input type="number" id="mdvpShimmerdB" name="mdvpShimmerdB" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="shimmerAPQ3">Shimmer:APQ3 (0.00000 to 0.10000):</label>
+            <input type="number" id="shimmerAPQ3" name="shimmerAPQ3" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="shimmerAPQ5">Shimmer:APQ5 (0.00000 to 0.10000):</label>
+            <input type="number" id="shimmerAPQ5" name="shimmerAPQ5" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="mdvpAPQ">MDVP:APQ (0.00000 to 0.10000):</label>
+            <input type="number" id="mdvpAPQ" name="mdvpAPQ" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="shimmerDDA">Shimmer:DDA (0.00000 to 0.10000):</label>
+            <input type="number" id="shimmerDDA" name="shimmerDDA" min="0.00000" max="0.10000" step="0.00001" required>
+
+            <label for="nhr">NHR (0.00000 to 1.00000):</label>
+            <input type="number" id="nhr" name="nhr" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="hnr">HNR (20.00000 to 50.00000):</label>
+            <input type="number" id="hnr" name="hnr" min="20.00000" max="50.00000" step="0.00001" required>
+
+            <label for="rpde">RPDE (0.00000 to 1.00000):</label>
+            <input type="number" id="rpde" name="rpde" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="dfa">DFA (0.00000 to 1.00000):</label>
+            <input type="number" id="dfa" name="dfa" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="spread1">Spread1 (-8.00000 to -2.00000):</label>
+            <input type="number" id="spread1" name="spread1" min="-8.00000" max="-2.00000" step="0.00001" required>
+
+            <label for="spread2">Spread2 (0.00000 to 1.00000):</label>
+            <input type="number" id="spread2" name="spread2" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="d2">D2 (0.00000 to 1.00000):</label>
+            <input type="number" id="d2" name="d2" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <label for="ppe">PPE (0.00000 to 1.00000):</label>
+            <input type="number" id="ppe" name="ppe" min="0.00000" max="1.00000" step="0.00001" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

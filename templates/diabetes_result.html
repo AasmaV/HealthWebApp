@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #75b1c2
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        p {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .precautions,
+        .treatments {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Result</h1>
+    <h3>The data you entered is: {{ lis }}</h3>
+
+    {% if ans == 0 %}
+        <p>The patient is not diagnosed with diabetes.</p>
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Maintain a balanced diet with controlled carbohydrate intake.</li>
+                <li>Engage in regular physical activity.</li>
+
+            </ul>
+        </div>
+    {% else %}
+        <p>The patient is diagnosed with diabetes.</p>
+        <div class="treatments">
+            <h2>Treatments:</h2>
+            <ul>
+                <li>Consult with a healthcare professional for personalized treatment advice.</li>
+                <li>Follow prescribed medications and insulin injections.</li>
+
+            </ul>
+        </div>
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Pregnancies</th>
+                <th>Glucose</th>
+                <th>Blood Pressure</th>
+                <th>Skin Thickness</th>
+                <th>Insulin</th>
+                <th>BMI</th>
+                <th>Diabetes Pedigree Function</th>
+                <th>Age</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ lis.0 }}</td>
+                <td>{{ lis.1 }}</td>
+                <td>{{ lis.2 }}</td>
+                <td>{{ lis.3 }}</td>
+                <td>{{ lis.4 }}</td>
+                <td>{{ lis.5 }}</td>
+                <td>{{ lis.6 }}</td>
+                <td>{{ lis.7 }}</td>
+                <td>
+                    {% if ans == 0 %}
+                        Not Diagnosed
+                    {% else %}
+                        Diagnosed
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{% url 'home' %}">Click here to go to home</a>
+</body>
+</html>

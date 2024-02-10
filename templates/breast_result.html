@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        p {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .precautions,
+        .treatments {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .diagnosed {
+            color: #28a745;
+        }
+
+        .not-diagnosed {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Radius Mean</th>
+                <th>Perimeter Mean</th>
+                <th>Area Mean</th>
+                <th>Compactness Mean</th>
+                <th>Concave Points Mean</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ lis.0 }}</td>
+                <td>{{ lis.1 }}</td>
+                <td>{{ lis.2 }}</td>
+                <td>{{ lis.3 }}</td>
+                <td>{{ lis.4 }}</td>
+                <td class="{% if ans == 0 %}diagnosed{% else %}not-diagnosed{% endif %}">
+                    {% if ans == 0 %}Diagnosed{% else %}Not Diagnosed{% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% if ans == 0 %}
+        <p class="diagnosed">The patient is diagnosed with breast cancer.</p>
+        <div class="treatments">
+            <h2>Treatments:</h2>
+            <ul>
+                <li>Consult with an oncologist for further evaluation.</li>
+                <li>Discuss treatment options, which may include surgery, chemotherapy, and radiation therapy.</li>
+                <li>Follow a healthy lifestyle and nutrition plan recommended by healthcare professionals.</li>
+                <!-- Add more treatments as needed -->
+            </ul>
+        </div>
+    {% else %}
+        <p class="not-diagnosed">The patient is not diagnosed with breast cancer.</p>
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Perform regular breast self-exams to become familiar with the normal look and feel of your breasts.</li>
+                <li>Being overweight or obese, especially after menopause, is a risk factor for breast cancer.</li>
+                <li>Engage in regular physical activity.</li>
+                <li>Limit alcohol intake.</li>
+                <li>If you smoke, quit.</li>
+                <li>Adopt a healthy and balanced diet that includes a variety of fruits, vegetables, whole grains, and lean proteins.</li>
+                <li>If possible, breastfeed your baby.</li>
+                <li>Be aware of your family history of breast cancer.</li>
+                <li>Be aware of environmental and occupational factors that may contribute to an increased risk of breast cancer.</li>
+            </ul>
+        </div>
+        <div class="consultation">
+            <h2>Consultation:</h2>
+            <ul>
+                <li>If you feel a lump or mass in your breast or underarm.</li>
+                <li>Any unexplained changes in the size or shape of your breast.</li>
+                <li>Persistent pain or discomfort in the breast or nipple that is not related to the menstrual cycle or other known causes.</li>
+                <li>Skin changes, such as redness, dimpling, or puckering.</li>
+                <li>Change in the appearance of the nipple such as inversion, scaliness, or discharge (other than breast milk).</li>
+                <li>Swelling in the breast or underarm that is not due to injury or infection.</li>
+                <li>Changes in sensation, such as itching or tenderness, that persist.</li>
+            </ul>
+        </div>
+    {% endif %}
+
+
+
+
+    <a href="{% url 'home' %}">Click here to go to home</a>
+</body>
+</html>

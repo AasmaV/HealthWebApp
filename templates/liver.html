@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+
+            margin: 20px;
+            background-color: #75b1c2
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Liver Disease Test</h2>
+
+    <!-- Next page form -->
+    <form action="{% url 'liver_result' %}">
+        {% csrf_token %}
+        <label for="age">Age (1 to 90):</label>
+        <input type="number" required step="0.01" name="age" min="1" max="90"><br><br>
+
+        <label for="gen">Gender (1:Male | 0:Female):</label>
+        <input type="number" required step="1" name="gen" min="0" max="1"><br><br>
+
+        <label for="bil">Bilirubin (0.1 to 5.0):</label>
+        <input type="number" required step="0.01" name="bil" min="0.1" max="5.0"><br><br>
+
+        <label for="dbil">Direct Bilirubin (0.1 to 5.0):</label>
+        <input type="number" required step="0.01" name="dbil" min="0.1" max="5.0"><br><br>
+
+        <label for="aph">Alkaline Phosphatase (40 to 500):</label>
+        <input type="number" required step="0.01" name="aph" min="40" max="500"><br><br>
+
+        <label for="alam">Alamine Aminotransferase (10 to 1000):</label>
+        <input type="number" required step="0.01" name="alam" min="10" max="1000"><br><br>
+
+        <label for="asam">Aspartate Aminotransferase (10 to 1000):</label>
+        <input type="number" required step="0.01" name="asam" min="10" max="1000"><br><br>
+
+        <label for="tp">Total Proteins (2 to 10):</label>
+        <input type="number" required step="0.01" name="tp" min="2" max="10"><br><br>
+
+        <label for="alb">Albumin (0.1 to 5.0):</label>
+        <input type="number" required step="0.01" name="alb" min="0.1" max="5.0"><br><br>
+
+        <label for="algl">Albumin and Globulin Ratio (0.1 to 5.0):</label>
+        <input type="number" required step="0.01" name="algl" min="0.1" max="5.0"><br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>

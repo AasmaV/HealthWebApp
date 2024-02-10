@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #75b1c2
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        p {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .precautions,
+        .treatments {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Added styles for status */
+        .diagnosed {
+            color: green;
+            font-weight: bold;
+        }
+
+        .not-diagnosed {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Total Bilirubin</th>
+                <th>Direct Bilirubin</th>
+                <th>Alkaline Phosphotase</th>
+                <th>Alamine Aminotransferase</th>
+                <th>Aspartate Aminotransferase</th>
+                <th>Total Proteins</th>
+                <th>Albumin</th>
+                <th>Albumin and Globulin Ratio</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>{{ lis.0 }}</td>
+                <td>{% if lis.1 == 1 %}Male{% else %}Female{% endif %}</td>
+                <td>{{ lis.2 }}</td>
+                <td>{{ lis.3 }}</td>
+                <td>{{ lis.4 }}</td>
+                <td>{{ lis.5 }}</td>
+                <td>{{ lis.6 }}</td>
+                <td>{{ lis.7 }}</td>
+                <td>{{ lis.8 }}</td>
+                <td>{{ lis.9 }}</td>
+                <td class="{% if ans == 1 %}diagnosed{% else %}not-diagnosed{% endif %}">
+                    {% if ans == 1 %}Diagnosed{% else %}Not Diagnosed{% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if ans == 1 %}
+        <p>The patient is diagnosed with liver disease.</p>
+        <div class="treatments">
+            <h2>Treatments:</h2>
+            <ul>
+                <li>Consult with a healthcare professional for personalized treatment advice.</li>
+                <li>Follow prescribed medications and treatment plans.</li>
+
+            </ul>
+        </div>
+    {% else %}cd
+        <p>The patient is not diagnosed with liver disease.</p>
+        <div class="precautions">
+            <h2>Precautions:</h2>
+            <ul>
+                <li>Avoid excessive alcohol consumption.</li>
+                <li>Maintain a healthy diet with a focus on fruits and vegetables.</li>
+
+            </ul>
+        </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Click here to go to home</a>
+</body>
+</html>
